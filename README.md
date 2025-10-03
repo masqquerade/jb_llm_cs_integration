@@ -2,7 +2,7 @@
 This is my solution for a LLM-powered scanner for Git repositories. The tool is able to scan remote and local repositories for passwords, api-tokens, database-URIs as well as for sensitive data like phone numbers, cards numbers, etc.
 
 # Simple scanning-steps illustration 
-
+![](images/illustration.svg)
 
 # Overview
 This tool is a repositories-scanner written in Python. It uses modified [secret-patterns-db](https://github.com/mazen160/secrets-patterns-db?tab=readme-ov-file) for regular expressions as a part of heuristic-powered detection of potential secrets/sensitive data. The scanner uses mainly `meta-llama/llama-4-scout-17b-16e-instruct` as a LLM model. I used [Groq](https://groq.com/) to test my solution.
