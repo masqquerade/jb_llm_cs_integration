@@ -1,8 +1,8 @@
 # Getting started!
 This is my solution for a LLM-powered scanner for Git repositories. The tool is able to scan remote and local repositories for passwords, api-tokens, database-URIs as well as for sensitive data like phone numbers, cards numbers, etc.
 
-# Simple scanning illustration
-[Frame 1](https://github.com/user-attachments/assets/35419102-7a73-4446-8536-9921ab21e7a5)
+# Simple scanning illustration [Frame 1](https://github.com/user-attachments/assets/35419102-7a73-4446-8536-9921ab21e7a5)
+
 <svg width="1038" height="294" viewBox="0 0 1038 294" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect y="89" width="165" height="72" rx="8" fill="#6391A6"/>
 <rect x="889" y="93" width="149" height="65" rx="8" fill="#73B95D"/>
