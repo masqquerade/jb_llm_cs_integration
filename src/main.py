@@ -30,10 +30,12 @@ def get_secrets_llm_context_obj(candidate):
         "uri_detected": candidate["uri_detected"],
     }
 
+# Helper function to save result into a file
 def save_result(filename: str, result):
     with open(filename, "w") as f:
         json.dump(result, f, indent=4)
 
+# Helper function to shape the llm output to needed format
 def form_llm_output(item, mapping):
     _id = item["id"]
     msg = mapping[_id]["commit"]["message"]
@@ -56,13 +58,14 @@ def form_llm_output(item, mapping):
         "readable": text
     }
 
-def parse_response(allowedValues, responses, map):
+# Helper function to parse LLM-response
+def parse_response(allowedValues, responses, mapping):
     tmp = []
 
     for response in responses:
         for item in response["items"]:
-            if item["label"] == "secret" or item["label"] == "likely_secret":
-                tmp.append(form_llm_output(item, map))
+            if item["label"] in allowedValues:
+                tmp.append(form_llm_output(item, mapping))
 
     return tmp
 
@@ -138,11 +141,6 @@ def analyze_sensitive(repo, cli, regex, llm):
         schema=verifySensitiveSchema,
         prompt_filename=SENSITIVE_VERIFY_PROMPT_NAME
     )
-
-    for response in batch_responses:
-        for item in response["items"]:
-            if item["label"] == "sensitive" or item["label"] == "likely_sensitive":
-                results.append(form_llm_output(item, llm_reports_map))
 
     results.extend(parse_response(["sensitive", "likely_sensitive"], batch_responses, llm_reports_map))
     save_result(cli.get_arg("out"), results)

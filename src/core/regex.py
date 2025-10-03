@@ -182,7 +182,6 @@ class Regex:
 
         if best_match is None:
             return None
-        print(best_match["token"])
 
         token = best_match["token"]
 
