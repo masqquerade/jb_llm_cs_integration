@@ -69,8 +69,7 @@ def parse_response(allowedValues, responses, mapping):
 
     return tmp
 
-
-# Initiates heuristic and LLM (if needed) analysis of diffs
+# Initiates heuristic and LLM (if needed) secrets-based-analysis of diffs
 def analyse_secrets(repo, cli, regex, llm):
     commits = repo.get_last_commits(cli.get_arg("n"))
 
@@ -112,7 +111,7 @@ def analyse_secrets(repo, cli, regex, llm):
     results.extend(parse_response(["secret", "likely_secret"], batch_responses, llm_reports_map))
     save_result(cli.get_arg("out"), results)
 
-
+# Initiates heuristic and LLM sensitive-data-based-analysis of diffs
 def analyze_sensitive(repo, cli, regex, llm):
     commits = repo.get_last_commits(cli.get_arg("n"))
 
