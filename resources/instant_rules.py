@@ -1,0 +1,3 @@
+INSTANT_RULES = [
+    "high"
+]
