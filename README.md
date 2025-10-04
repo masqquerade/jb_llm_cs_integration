@@ -16,10 +16,10 @@ This tool is a repositories-scanner written in Python. It uses modified [secret-
 3. `--out`: Specifies name of the output file
 
 **Optional arguments**:
-1. `--sensitive`: Changes the mod to sensitive data scan. The tool will only recognize phone numbers, card numbers, emails, etc.
+1. `--sensitive`: Changes the mode to sensitive data scan. The tool will only recognize phone numbers, card numbers, emails, etc.
 
 ### Scanning
-**The tool uses two steps scanning**:
+**The tool uses two-step scanning**:
 1. **Heuristic-scan**: I use regular expressions as a first signal about whether some token (by token I mean some section of text) could be dangerous. If high-confidence regex detects some token and there are no other nuances, the token will be instantly marked as a `secret` bypassing the LLM. If detection occures, I use several techniques to reduce noise:
     - **Primary filter**: The most long and confident match will be used in further study
     - **URI detection**: If URI was matched, it will be parsed statically to determine whether it has credentials (password and username)
