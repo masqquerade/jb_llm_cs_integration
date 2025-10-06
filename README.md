@@ -56,7 +56,7 @@ The tool requires two environment variables to work:
 
 **Windows**:
 
-`.\.venv\Scripts\activate`
+`.\venv\Scripts\activate`
 
 **Linux/MacOS**:
 
